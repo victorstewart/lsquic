@@ -7379,8 +7379,8 @@ process_regular_packet (struct ietf_full_conn *conn,
                                                     packet_in->pi_received);
     switch (st) {
     case REC_ST_OK:
-        if (!(conn->ifc_flags & (IFC_SERVER|IFC_DCID_SET))
-                                                && (packet_in->pi_scid_len))
+        if (!(conn->ifc_flags & (IFC_SERVER|IFC_DCID_SET)))
+                                                //&& (packet_in->pi_scid_len))
             record_dcid(conn, packet_in);
         saved_path_id = conn->ifc_cur_path_id;
         parse_regular_packet(conn, packet_in);
